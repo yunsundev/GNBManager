@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">GNBManager</string>
+
+    <!-- Commons -->
+    <string name="empty_string"/>
+    <string name="error_title">Error</string>
+    <string name="error_network_message">A network error has happened.</string>
+    <string name="error_unknown_message">An unexpected error happened.</string>
+</resources>
