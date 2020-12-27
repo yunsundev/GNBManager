@@ -1,8 +1,9 @@
 package com.ysun.gnbmanager.dagger
 
-import com.ysun.gnbmanager.main.repository.NetworkRepository
+import com.ysun.gnbmanager.main.repository.RatesTransactionsRepository
+import com.ysun.gnbmanager.main.repository.datasources.PersistenceDataSource
 import com.ysun.gnbmanager.main.repository.datasources.NetworkDataSource
-import com.ysun.gnbmanager.main.repository.impl.NetworkRepositoryImpl
+import com.ysun.gnbmanager.main.repository.impl.RatesTransactionsRepositoryImpl
 import dagger.Module
 import dagger.Provides
 
@@ -10,8 +11,11 @@ import dagger.Provides
 class RepositoryModule {
 
     @Provides
-    fun providesNetworkRepository(networkDataSource: NetworkDataSource): NetworkRepository {
-        return NetworkRepositoryImpl(networkDataSource)
+    fun providesNetworkRepository(
+        networkDataSource: NetworkDataSource,
+        persistenceDataSource: PersistenceDataSource
+    ): RatesTransactionsRepository {
+        return RatesTransactionsRepositoryImpl(networkDataSource, persistenceDataSource)
     }
 }
 

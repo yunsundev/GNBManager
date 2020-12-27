@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="BaseTextView">
+        <attr name="bold" format="boolean" />
+    </declare-styleable>
+
+    <declare-styleable name="LabeledTextView">
+        <attr name="label" format="reference" />
+        <attr name="labelTextColor" format="reference" />
+        <attr name="text" format="reference" />
+        <attr name="textColor" format="reference" />
+    </declare-styleable>
+</resources>

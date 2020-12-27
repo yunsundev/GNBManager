@@ -1,6 +1,7 @@
 package com.ysun.gnbmanager.main.repository.impl
 
-import com.ysun.gnbmanager.main.repository.NetworkRepository
+import com.ysun.gnbmanager.main.repository.RatesTransactionsRepository
+import com.ysun.gnbmanager.main.repository.datasources.PersistenceDataSource
 import com.ysun.gnbmanager.main.repository.datasources.NetworkDataSource
 import com.ysun.gnbmanager.main.repository.entities.ApiRate
 import com.ysun.gnbmanager.main.repository.entities.ApiTransaction
@@ -12,9 +13,10 @@ import io.reactivex.Observable
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
 
-class NetworkRepositoryImpl(
-    private val networkDataSource: NetworkDataSource
-) : NetworkRepository {
+class RatesTransactionsRepositoryImpl(
+    private val networkDataSource: NetworkDataSource,
+    private val persistenceDataSource : PersistenceDataSource
+) : RatesTransactionsRepository {
 
     override fun requestRates(): Observable<List<Rate>> {
         return networkDataSource.requestRates()
@@ -30,6 +32,14 @@ class NetworkRepositoryImpl(
             .observeOn(AndroidSchedulers.mainThread())
             .flatMap { response: List<ApiTransaction> -> TransactionMapper().toModel(response) }
             .toObservable()
+    }
+
+    override fun saveTransactions(transactions: Map<String, MutableList<Transaction>>) {
+        persistenceDataSource.saveTransactions(transactions)
+    }
+
+    override fun findRelatedTransactions(transactionId: String): Observable<List<Transaction>> {
+        return persistenceDataSource.findRelatedTransactions(transactionId)
     }
 
 }

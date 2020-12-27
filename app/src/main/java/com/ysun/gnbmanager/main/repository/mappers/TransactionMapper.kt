@@ -13,7 +13,7 @@ class TransactionMapper {
                 mappedObjects[item.sku] = mutableListOf(
                     Transaction
                         .id(item.sku)
-                        .amount(item.amount)
+                        .amount(item.amount.toDouble())
                         .currency(item.currency)
                         .build()
                 )
@@ -21,7 +21,7 @@ class TransactionMapper {
                 mappedObjects[item.sku]?.add(
                     Transaction
                         .id(item.sku)
-                        .amount(item.amount)
+                        .amount(item.amount.toDouble())
                         .currency(item.currency)
                         .build()
                 )

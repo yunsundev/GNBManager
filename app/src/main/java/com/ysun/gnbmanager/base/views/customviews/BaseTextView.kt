@@ -11,7 +11,6 @@ class BaseTextView @JvmOverloads constructor(
 ) : MaterialTextView(context, attrs, defStyleAttr) {
 
     init {
-/*
         attrs?.let {
             val typedArray = context.obtainStyledAttributes(
                 it,
@@ -33,7 +32,6 @@ class BaseTextView @JvmOverloads constructor(
 
             typedArray.recycle()
         }
-        */
     }
 
     companion object {

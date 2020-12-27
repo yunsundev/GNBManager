@@ -1,10 +1,12 @@
 package com.ysun.gnbmanager.dagger
 
+import com.ysun.gnbmanager.main.presenter.usecases.RelatedTransactionsUseCase
 import com.ysun.gnbmanager.main.presenter.usecases.RequestRateUseCase
 import com.ysun.gnbmanager.main.presenter.usecases.RequestTransactionUseCase
+import com.ysun.gnbmanager.main.presenter.usecases.impl.RelatedTransactionsUseCaseImpl
 import com.ysun.gnbmanager.main.presenter.usecases.impl.RequestRateUseCaseImpl
 import com.ysun.gnbmanager.main.presenter.usecases.impl.RequestTransactionUseCaseImpl
-import com.ysun.gnbmanager.main.repository.NetworkRepository
+import com.ysun.gnbmanager.main.repository.RatesTransactionsRepository
 import dagger.Module
 import dagger.Provides
 
@@ -12,12 +14,17 @@ import dagger.Provides
 class UseCaseModule {
 
     @Provides
-    fun providesRequestTransactionUseCase(repository: NetworkRepository) : RequestTransactionUseCase{
+    fun providesRequestTransactionUseCase(repository: RatesTransactionsRepository): RequestTransactionUseCase {
         return RequestTransactionUseCaseImpl(repository)
     }
 
     @Provides
-    fun providesRequestRateUseCase(repository: NetworkRepository) : RequestRateUseCase {
+    fun providesRequestRateUseCase(repository: RatesTransactionsRepository): RequestRateUseCase {
         return RequestRateUseCaseImpl(repository)
+    }
+
+    @Provides
+    fun providesRelatedTransactionsUseCase(repository: RatesTransactionsRepository): RelatedTransactionsUseCase {
+        return RelatedTransactionsUseCaseImpl(repository)
     }
 }

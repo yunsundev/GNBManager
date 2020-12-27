@@ -1,11 +1,11 @@
 package com.ysun.gnbmanager.main.repository.models
 
-class Transaction(var id: String, var amount: String, var currency: String) {
+class Transaction(var id: String, var amount: Double, var currency: String) {
 
     companion object Builder {
 
         private lateinit var id: String
-        private lateinit var amount: String
+        private var amount: Double = 0.0
         private lateinit var currency: String
 
         fun id(id: String): Builder {
@@ -13,7 +13,7 @@ class Transaction(var id: String, var amount: String, var currency: String) {
             return this
         }
 
-        fun amount(amount: String): Builder {
+        fun amount(amount: Double): Builder {
             this.amount = amount
             return this
         }

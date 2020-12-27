@@ -1,6 +1,7 @@
 package com.ysun.gnbmanager
 
 import android.app.Application
+import com.ysun.gnbmanager.base.utils.SharedPreferencesManager
 import com.ysun.gnbmanager.dagger.*
 
 class Application : Application() {
@@ -20,6 +21,7 @@ class Application : Application() {
     override fun onCreate() {
         super.onCreate()
         component.inject(this)
+        SharedPreferencesManager.with(this)
     }
 
 }

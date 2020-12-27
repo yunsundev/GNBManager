@@ -21,8 +21,6 @@ abstract class BaseActivity : AppCompatActivity(), BaseContract.View, BaseContra
 
     protected abstract fun initPresenter()
 
-    protected abstract fun bindViews()
-
     protected abstract fun init(extras: Bundle?)
 
     protected abstract fun injectView(appComponent: AppComponent?)
