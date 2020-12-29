@@ -13,76 +13,74 @@ class LabeledTextView @JvmOverloads constructor(
 ) : LinearLayout(context, attrs, defStyleAttr) {
 
 
-    /*
-//private val labelTV: BaseTextView
-//private val bodyTV: BaseTextView
+    private val labelTV: BaseTextView
+    private val bodyTV: BaseTextView
 
-init {
-    val view = LayoutInflater.from(context)
-        .inflate(R.layout.labeled_text_view, this, true)
-    orientation = VERTICAL
+    init {
+        val view = LayoutInflater.from(context)
+            .inflate(R.layout.labeled_text_view, this, true)
+        orientation = VERTICAL
 
-    labelTV = view.findViewById(R.id.labeled_text_view_label)
-    bodyTV = view.findViewById(R.id.labeled_text_view_body)
+        labelTV = view.findViewById(R.id.labeled_text_view_label)
+        bodyTV = view.findViewById(R.id.labeled_text_view_body)
 
-    attrs?.let {
-        val typedArray = context.obtainStyledAttributes(
-            it,
-            R.styleable.LabeledTextView, 0, 0
-        )
-        val label = resources.getText(
-            typedArray
-                .getResourceId(
-                    R.styleable
-                        .LabeledTextView_label,
-                    R.string.empty_string
-                )
-        )
-        val text = resources.getText(
-            typedArray
-                .getResourceId(
-                    R.styleable
-                        .LabeledTextView_text,
-                    R.string.empty_string
-                )
-        )
+        attrs?.let {
+            val typedArray = context.obtainStyledAttributes(
+                it,
+                R.styleable.LabeledTextView, 0, 0
+            )
+            val label = resources.getText(
+                typedArray
+                    .getResourceId(
+                        R.styleable
+                            .LabeledTextView_label,
+                        R.string.empty_string
+                    )
+            )
+            val text = resources.getText(
+                typedArray
+                    .getResourceId(
+                        R.styleable
+                            .LabeledTextView_text,
+                        R.string.empty_string
+                    )
+            )
 
-        labelTV.setTextColor(
-            ContextCompat.getColor(
-                context,
-                typedArray.getResourceId(
-                    R.styleable.LabeledTextView_labelTextColor,
-                    R.color.bitcoin_blue
+            labelTV.setTextColor(
+                ContextCompat.getColor(
+                    context,
+                    typedArray.getResourceId(
+                        R.styleable.LabeledTextView_labelTextColor,
+                        R.color.blue_500
+                    )
                 )
             )
-        )
 
-        bodyTV.setTextColor(
-            ContextCompat.getColor(
-                context,
-                typedArray.getResourceId(
-                    R.styleable.LabeledTextView_textColor,
-                    R.color.bitcoin_blue
+            bodyTV.setTextColor(
+                ContextCompat.getColor(
+                    context,
+                    typedArray.getResourceId(
+                        R.styleable.LabeledTextView_textColor,
+                        R.color.blue_500
+                    )
                 )
             )
-        )
 
-        labelTV.text = label
-        bodyTV.text = text
+            labelTV.text = label
+            bodyTV.text = text
 
-        typedArray.recycle()
+            typedArray.recycle()
+        }
+
     }
 
-}
+    fun setLabel(charSequence: CharSequence) {
+        labelTV.text = charSequence
+    }
 
-fun setLabel(charSequence: CharSequence) {
-    labelTV.text = charSequence
-}
+    fun setText(charSequence: CharSequence) {
+        bodyTV.text = charSequence
+    }
 
-fun setText(charSequence: CharSequence) {
-    bodyTV.text = charSequence
-}
-
-     */
 
 }

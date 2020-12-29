@@ -3,7 +3,7 @@ package com.ysun.gnbmanager.main.presenter.impl
 import com.ysun.gnbmanager.base.presenter.impl.BasePresenterImpl
 import com.ysun.gnbmanager.main.presenter.MainContract
 import com.ysun.gnbmanager.main.presenter.usecases.RelatedTransactionsUseCase
-import com.ysun.gnbmanager.main.presenter.usecases.RequestRateUseCase
+import com.ysun.gnbmanager.detail.views.presenter.usecases.RequestRateUseCase
 import com.ysun.gnbmanager.main.presenter.usecases.RequestTransactionUseCase
 import com.ysun.gnbmanager.main.repository.models.Rate
 import com.ysun.gnbmanager.main.repository.models.Transaction
@@ -15,7 +15,7 @@ class MainPresenter(
     private val relatedTransactionsUseCase: RelatedTransactionsUseCase
 ) : BasePresenterImpl(), MainContract.Presenter {
 
-    private lateinit var rateList : List<Rate>
+    private lateinit var rateList: List<Rate>
 
     override fun init() {
 
@@ -81,7 +81,7 @@ class MainPresenter(
         return object : DisposableObserver<List<Transaction>>() {
 
             override fun onNext(transactionList: List<Transaction>) {
-                view.onRelatedTransactionListLoaded(transactionList)
+                view.onRelatedTransactionListLoaded(this@MainPresenter.rateList, transactionList)
             }
 
             override fun onComplete() {

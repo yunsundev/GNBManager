@@ -1,10 +1,12 @@
 package com.ysun.gnbmanager.main.repository.models
 
+import java.io.Serializable
+
 class Rate(
-    private val originCurrency: String,
-    private val destinationCurrency: String,
-    private val rate: Double
-) {
+    val originCurrency: String,
+    val destinationCurrency: String,
+    val rate: Double
+) : Serializable {
 
     companion object Builder {
 

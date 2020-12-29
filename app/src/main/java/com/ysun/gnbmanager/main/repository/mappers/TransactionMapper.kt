@@ -3,6 +3,9 @@ package com.ysun.gnbmanager.main.repository.mappers
 import com.ysun.gnbmanager.main.repository.entities.ApiTransaction
 import com.ysun.gnbmanager.main.repository.models.Transaction
 import io.reactivex.Single
+import java.math.BigDecimal
+import java.math.RoundingMode
+import java.text.DecimalFormat
 
 class TransactionMapper {
 
@@ -13,7 +16,10 @@ class TransactionMapper {
                 mappedObjects[item.sku] = mutableListOf(
                     Transaction
                         .id(item.sku)
-                        .amount(item.amount.toDouble())
+                        .amount(
+                            BigDecimal(item.amount.toDouble())
+                            .setScale(2, RoundingMode.HALF_EVEN)
+                            .toDouble())
                         .currency(item.currency)
                         .build()
                 )
@@ -21,7 +27,9 @@ class TransactionMapper {
                 mappedObjects[item.sku]?.add(
                     Transaction
                         .id(item.sku)
-                        .amount(item.amount.toDouble())
+                        .amount(BigDecimal(item.amount.toDouble())
+                            .setScale(2, RoundingMode.HALF_EVEN)
+                            .toDouble())
                         .currency(item.currency)
                         .build()
                 )

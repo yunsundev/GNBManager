@@ -1,6 +1,9 @@
 package com.ysun.gnbmanager.main.repository.models
 
-class Transaction(var id: String, var amount: Double, var currency: String) {
+import java.io.Serializable
+
+
+data class Transaction(var id: String, var amount: Double, var currency: String) : Serializable{
 
     companion object Builder {
 
@@ -22,7 +25,6 @@ class Transaction(var id: String, var amount: Double, var currency: String) {
             this.currency = currency
             return this
         }
-
 
         fun build(): Transaction = Transaction(id, amount, currency)
     }

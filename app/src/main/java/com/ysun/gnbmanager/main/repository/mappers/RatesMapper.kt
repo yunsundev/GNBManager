@@ -14,11 +14,7 @@ class RatesMapper {
             mappedObjects.add(
                 Rate.originCurrency(item.from)
                     .destinationCurrency(item.to)
-                    .rate(
-                        BigDecimal(item.rate.toDouble())
-                            .setScale(2, RoundingMode.HALF_EVEN)
-                            .toDouble()
-                    )
+                    .rate(item.rate.toDouble())
                     .build()
             )
         }

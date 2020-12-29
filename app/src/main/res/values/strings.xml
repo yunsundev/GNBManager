@@ -6,4 +6,12 @@
     <string name="error_title">Error</string>
     <string name="error_network_message">A network error has happened.</string>
     <string name="error_unknown_message">An unexpected error happened.</string>
+
+    <!-- Main -->
+    <string name="main_transactions_title">List of transactions</string>
+
+    <!-- Detail -->
+    <string name="detail_total">Total: %1$.2f €</string>
+    <string name="transaction_detail_viewHolder_label_amount">Operation: </string>
+    <string name="transaction_detail_viewHolder_amount">%1$.2f €</string>
 </resources>

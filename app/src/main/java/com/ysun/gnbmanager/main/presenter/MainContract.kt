@@ -8,7 +8,7 @@ interface MainContract : BaseContract {
 
     interface View : BaseContract.View {
         fun onTransactionsLoaded(transactionList: Map<String, MutableList<Transaction>>)
-        fun onRelatedTransactionListLoaded(transactionList: List<Transaction>)
+        fun onRelatedTransactionListLoaded(rateList: List<Rate>, transactionList: List<Transaction>)
     }
 
     interface Presenter: BaseContract.Presenter {
