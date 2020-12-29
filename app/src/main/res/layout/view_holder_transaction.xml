@@ -10,13 +10,22 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/soft_blue"
-        android:orientation="vertical">
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:layout_marginEnd="5dp"
+            android:src="@drawable/ic_arrow_right_white" />
 
         <com.ysun.gnbmanager.base.views.customviews.BaseTextView
             android:id="@+id/viewHolder_transaction_title"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="5dp"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
             android:textColor="@color/white"
             android:textSize="18sp"
             app:bold="true" />
